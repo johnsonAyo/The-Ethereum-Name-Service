@@ -1,1 +1,1 @@
-# The-Ethereum-Name-Service
+# The-Ethereum-Name-Service / Hardhat Etherscan Verification
