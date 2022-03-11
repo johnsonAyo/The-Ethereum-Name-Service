@@ -56,4 +56,19 @@ export default function Home() {
       }
     };
 
+     /*
+    renderButton: Returns a button based on the state of the dapp
+  */
+  const renderButton = () => {
+    if (walletConnected) {
+      <div>Wallet connected</div>;
+    } else {
+      return (
+        <button onClick={connectWallet} className={styles.button}>
+          Connect your wallet
+        </button>
+      );
+    }
+  };
+
 }
