@@ -14,6 +14,8 @@ export default function Home() {
   // Save the address of the currently connected contract
   const [address, setAddress] = useState("");
 
+  const [ENSOrAddress, setENSOrAddress] = useState("");
+
 
   /**
    * A `Provider` is needed to interact with the blockchain - reading transactions, reading balances, reading state, etc.
@@ -89,4 +91,31 @@ export default function Home() {
     }
   }, [walletConnected]);
 
+  return (
+    <div>
+      <Head>
+        <title>ENS Dapp</title>
+        <meta name="description" content="ENS-Dapp" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.main}>
+        <div>
+          <h1 className={styles.title}>
+            Welcome to LearnWeb3 Punks {ens ? ens : address}!
+          </h1>
+          <div className={styles.description}>
+            Its an NFT collection for LearnWeb3 Punks.
+          </div>
+          {renderButton()}
+        </div>
+        <div>
+          <img className={styles.image} src="./ens.png" />
+        </div>
+      </div>
+
+      <footer className={styles.footer}>
+        Made with &#10084; by LearnWeb3 Punks
+      </footer>
+    </div>
+  );
 }
