@@ -16,7 +16,6 @@ export default function Home() {
 
   const [ENSOrAddress, setENSOrAddress] = useState("");
 
-
   /**
    * A `Provider` is needed to interact with the blockchain - reading transactions, reading balances, reading state, etc.
    *
@@ -24,7 +23,7 @@ export default function Home() {
    * needing to make a digital signature to authorize the transaction being sent. Metamask exposes a Signer API to allow your website to
    * request signatures from the user using Signer functions.
    */
-   const getProviderOrSigner = async () => {
+  const getProviderOrSigner = async () => {
     // Connect to Metamask
     // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
     const provider = await web3ModalRef.current.connect();
@@ -44,21 +43,21 @@ export default function Home() {
     return signer;
   };
 
-    /*
+  /*
     connectWallet: Connects the MetaMask wallet
   */
-    const connectWallet = async () => {
-      try {
-        // Get the provider from web3Modal, which in our case is MetaMask
-        // When used for the first time, it prompts the user to connect their wallet
-        await getProviderOrSigner(true);
-        setWalletConnected(true);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  const connectWallet = async () => {
+    try {
+      // Get the provider from web3Modal, which in our case is MetaMask
+      // When used for the first time, it prompts the user to connect their wallet
+      await getProviderOrSigner(true);
+      setWalletConnected(true);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-     /*
+  /*
     renderButton: Returns a button based on the state of the dapp
   */
   const renderButton = () => {
@@ -72,7 +71,6 @@ export default function Home() {
       );
     }
   };
-
 
   // useEffects are used to react to changes in state of the website
   // The array at the end of function call represents what state changes will trigger this effect
@@ -104,7 +102,7 @@ export default function Home() {
             Welcome to LearnWeb3 Punks {ens ? ens : address}!
           </h1>
           <div className={styles.description}>
-            Its an NFT collection for LearnWeb3 Punks.
+            Its an NFT collection for LearnWeb3 Devs.
           </div>
           {renderButton()}
         </div>
