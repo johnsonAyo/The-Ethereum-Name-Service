@@ -8,17 +8,37 @@ const MUMBAI_PRIVATE_KEY = process.env.MUMBAI_PRIVATE_KEY;
 
 const POLYGONSCAN_KEY = process.env.POLYGONSCAN_KEY;
 
+console.log(
+  "********",
+  ALCHEMY_API_KEY_URL,
+  MUMBAI_PRIVATE_KEY,
+  POLYGONSCAN_KEY
+);
+
 module.exports = {
-  solidity: "0.8.4",
+  solidity: "0.8.9",
+  defaultNetwork: "mumbai",
   networks: {
+    hardhat: {},
     mumbai: {
       url: ALCHEMY_API_KEY_URL,
       accounts: [MUMBAI_PRIVATE_KEY],
     },
   },
   etherscan: {
-    apiKey: {
-      polygonMumbai: POLYGONSCAN_KEY,
-    },
+    apiKey: POLYGONSCAN_KEY,
   },
 };
+
+// module.exports = {
+//   solidity: "0.8.4",
+//   networks: {
+//     mumbai: {
+//       url: ALCHEMY_API_KEY_URL,
+//       accounts: [MUMBAI_PRIVATE_KEY],
+//     },
+//   },
+//   etherscan: {
+//     apiKey: POLYGONSCAN_KEY,
+//   },
+// };
